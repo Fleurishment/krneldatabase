@@ -1,0 +1,196 @@
+/* FGO Database Custom Styles */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Rarity stars styling */
+.rarity-stars {
+  letter-spacing: 1px;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
+}
+
+/* Card hover effects */
+.servant-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.25);
+}
+
+/* Class badge colors */
+.class-saber { background-color: #1E88E5; }
+.class-archer { background-color: #E53935; }
+.class-lancer { background-color: #43A047; }
+.class-rider { background-color: #8E24AA; }
+.class-caster { background-color: #00ACC1; }
+.class-assassin { background-color: #616161; }
+.class-berserker { background-color: #8D6E63; }
+.class-shielder { background-color: #5E35B1; }
+.class-ruler { background-color: #FDD835; color: #000; }
+.class-avenger { background-color: #B71C1C; }
+.class-alterEgo { background-color: #D81B60; }
+.class-moonCancer { background-color: #EC407A; }
+.class-foreigner { background-color: #00897B; }
+.class-pretender { background-color: #43A047; }
+.class-beast { background-color: #4A148C; }
+
+/* Skill card styling */
+.skill-card {
+  border-left: 3px solid hsl(var(--primary));
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Pulse animation for loading */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Image loading placeholder */
+.image-placeholder {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 25%,
+    hsl(var(--muted) / 0.5) 50%,
+    hsl(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive grid for servants */
+.servant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .servant-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .servant-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .servant-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .servant-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark mode specific adjustments */
+.dark .servant-card:hover {
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
